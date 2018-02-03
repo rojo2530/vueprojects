@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" xmlns="http://www.w3.org/1999/html">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Hello, world!</title>
+    <style>
+        .input.is-danger {
+            border-color: #ff0000;
+
+        }
+        .help {
+            color: #ff0000;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -17,9 +26,16 @@
         <div class="col-6">
             <form>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" v-model="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <input class="form-control" v-validate="'required|email'" :class="{'input': true, 'is-danger': errors.has('email') }" name="email" type="text" placeholder="Email">
+                    <span v-show="errors.has('email')" class="help is-danger">{{ errors.first('email') }}</span>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" name="url"  v-validate="'required|url'" :class="{'input': true, 'is-danger': errors.has('url') }" type="text" placeholder="Dominio">
+                    <span v-show="errors.has('url')" class="help is-danger">{{ errors.first('url') }}</span>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" name="mitext" v-model="name" type="text" placeholder="escribe texto">
+                    <span v-show="errors.has('url')" class="help is-danger">{{ errors.first('url') }}</span>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
@@ -44,6 +60,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="vee-validate.js"></script>
+<script src="main.js"></script>
 
 </body>
 </html>
