@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Libro</title>
+</head>
+<body>
+<div id="app">
+    <template v-if="!message">
+        <h1 v-show="!message">Debes enviar un mensaje de ayuda</h1>
+        <p>Envia un mensajero inmediatamente</p>
+    </template>
+    <textarea v-model="message" name="" id="" cols="30" rows="10">
+
+    </textarea>
+    <button v-show="message">Enviar mensaje de ayuda a los aliados</button>
+    <pre>
+        {{ $data}}
+    </pre>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="main_libro.js"></script>
+</body>
+</html>
