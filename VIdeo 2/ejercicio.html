@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Saludo</title>
+</head>
+<body>
+<div id="app">
+    <h1 v-if="genero=='hombre'">Hola Sr {{name}}</h1>
+    <h1 v-else-if="genero=='mujer'">Hola Sra {{name}}</h1>
+    <h1 v-else>Así que no puedes decidir</h1>
+    <h1>Hola {{name}}</h1>
+    <label>Ingresa tu genero</label>
+    <input v-model="genero" type="text" placeholder="Genero">
+    <label>Ingresa tu nombre</label>
+    <input v-model="name" type="text" placeholder="Nombre">
+
+    <pre>
+        {{ $data}}
+    </pre>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="main_ejercicio.js"></script>
+</body>
+</html>
